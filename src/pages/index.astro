@@ -42,15 +42,15 @@ const contactInfo = [
       keyboard modding.
     </p>
   </div>
-  <div class="flex flex-col gap-4">
-    <h2 class="text-3xl font-bold my-4">you can find me on social media:</h2>
+  <div class="flex flex-col gap-4 mt-4">
+    <h2 class="text-3xl font-bold">you can find me on social media:</h2>
     <iframe
       title="Discord user embed"
       width="340"
       height="72"
       sandbox="allow-scripts"
       src="https://widgets.vendicated.dev/user?id=329597208494211073&theme=dark&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"
-    ></iframe>
+      class="hover:scale-110 duration-150"></iframe>
     <ul class="flex gap-4 flex-col">
       {
         contactInfo.map(({ type, name, link, Icon }) => (
@@ -61,7 +61,7 @@ const contactInfo = [
             </div>
             <a
               href={link}
-              class="px-3 rounded-full bg-muted hover:text-background hover:bg-accent hover:scale-110 duration-150"
+              class="px-3 rounded-full bg-muted border-1 border-accent/40 hover:text-background hover:bg-accent hover:scale-110 duration-150"
               target="_blank"
             >
               {name}
@@ -72,9 +72,9 @@ const contactInfo = [
     </ul>
   </div>
   <div>
-    <h3 class="text-2xl font-bold my-4">
+    <h2 class="text-3xl font-bold my-4">
       here's some of the <span class="text-accent">projects</span> i've worked on:
-    </h3>
+    </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       <Repos />
     </div>
