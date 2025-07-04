@@ -3,10 +3,11 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
+import Repos from "@/components/Repos.astro";
 
 const contactInfo = [
   {
-    type: "twitter",
+    type: "x (fka twitter)",
     name: "@_xchrl",
     link: "https://twitter.com/@_xchrl",
     Icon: FaTwitter,
@@ -27,51 +28,55 @@ const contactInfo = [
 ---
 
 <Layout>
-  <main class="container mx-auto p-8 flex flex-col gap-8">
-    <div>
-      <h1 class="text-4xl font-bold my-4">
-        👋 hey hey, i'm <span class="text-accent">charlie</span>!
-      </h1>
-      <p>
-        i'm a self-taught front-end developer that's incredibly passionate about
-        programming and ui development.
-      </p>
-      <p>
-        i'm also really into gaming (especially gacha games), esports (mainly
-        counter strike and rocket league), a little bit of speedcubing and
-        keyboard modding.
-      </p>
+  <div>
+    <h1 class="text-4xl font-bold my-4">
+      👋 hey hey, i'm <span class="text-accent">charlie</span>!
+    </h1>
+    <p>
+      i'm a self-taught front-end developer that's incredibly passionate about
+      programming and ui development.
+    </p>
+    <p>
+      i'm also really into gaming (especially gacha games), esports (mainly
+      counter strike and rocket league), a little bit of speedcubing and
+      keyboard modding.
+    </p>
+  </div>
+  <div class="flex flex-col gap-4">
+    <h2 class="text-3xl font-bold my-4">you can find me on social media:</h2>
+    <iframe
+      title="Discord user embed"
+      width="340"
+      height="72"
+      sandbox="allow-scripts"
+      src="https://widgets.vendicated.dev/user?id=329597208494211073&theme=dark&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"
+    ></iframe>
+    <ul class="flex gap-4 flex-col">
+      {
+        contactInfo.map(({ type, name, link, Icon }) => (
+          <li class="flex items-center justify-between">
+            <div class="flex items-center gap-3 text-xl">
+              <Icon />
+              <h3>{type}</h3>
+            </div>
+            <a
+              href={link}
+              class="px-3 rounded-full bg-muted hover:text-background hover:bg-accent hover:scale-110 duration-150"
+              target="_blank"
+            >
+              {name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div>
+    <h3 class="text-2xl font-bold my-4">
+      here's some of the <span class="text-accent">projects</span> i've worked on:
+    </h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <Repos />
     </div>
-    <div>
-      <h2 class="font-bold my-4">you can find me on social media:</h2>
-      <div class="flex flex-col gap-4">
-        <iframe
-          title="Discord user embed"
-          width="340"
-          height="72"
-          sandbox="allow-scripts"
-          src="https://widgets.vendicated.dev/user?id=329597208494211073&theme=dark&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"
-        ></iframe>
-        <ul class="flex gap-4 flex-col">
-          {
-            contactInfo.map(({ type, name, link, Icon }) => (
-              <li class="flex items-center justify-between">
-                <div class="flex items-center gap-3 text-xl">
-                  <Icon />
-                  <h3>{type}</h3>
-                </div>
-                <a
-                  href={link}
-                  class="px-3 rounded-full bg-muted hover:text-accent duration-150"
-                  target="_blank"
-                >
-                  {name}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-    </div>
-  </main>
+  </div>
 </Layout>

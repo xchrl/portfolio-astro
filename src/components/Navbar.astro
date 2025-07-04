@@ -11,24 +11,22 @@ const routes = [
 const currentPath = Astro.url.pathname;
 ---
 
-<header class="w-full bg-sidebar">
-  <nav class="container mx-auto flex justify-between items-center p-6">
-    <div class="text-accent">
-      <h1 class="text-xl font-bold">xchrl</h1>
-    </div>
-    <div class="flex gap-4">
-      {
-        routes.map(({ route, label }) =>
-          currentPath == route ? (
-            <span class="underline">{label}</span>
-          ) : (
-            <a href={route} class="hover:text-accent duration-150">
-              {label}
-            </a>
-          )
+<nav class="container mx-auto flex justify-between items-center p-6">
+  <div class="text-accent">
+    <h1 class="text-xl font-bold">xchrl</h1>
+  </div>
+  <div class="flex gap-4">
+    {
+      routes.map(({ route, label }) =>
+        currentPath == route ? (
+          <span class="underline">{label}</span>
+        ) : (
+          <a href={route} class="hover:text-accent duration-150">
+            {label}
+          </a>
         )
-      }
-    </div>
-    <div>placeholder</div>
-  </nav>
-</header>
+      )
+    }
+  </div>
+  <div>placeholder</div>
+</nav>
