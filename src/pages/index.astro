@@ -1,11 +1,77 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Navbar from "../components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
+import { FaTwitter, FaGithub } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const contactInfo = [
+  {
+    type: "twitter",
+    name: "@_xchrl",
+    link: "https://twitter.com/@_xchrl",
+    Icon: FaTwitter,
+  },
+  {
+    type: "github",
+    name: "xchrl",
+    link: "https://github.com/xchrl",
+    Icon: FaGithub,
+  },
+  {
+    type: "email",
+    name: "michalbronicki85@gmail.com",
+    link: "mailto:michalbronicki85@gmail.com",
+    Icon: IoMdMail,
+  },
+];
 ---
 
 <Layout>
-	<Welcome />
+  <main class="container mx-auto p-8 flex flex-col gap-8">
+    <div>
+      <h1 class="text-4xl font-bold my-4">
+        👋 hey hey, i'm <span class="text-accent">charlie</span>!
+      </h1>
+      <p>
+        i'm a self-taught front-end developer that's incredibly passionate about
+        programming and ui development.
+      </p>
+      <p>
+        i'm also really into gaming (especially gacha games), esports (mainly
+        counter strike and rocket league), a little bit of speedcubing and
+        keyboard modding.
+      </p>
+    </div>
+    <div>
+      <h2 class="font-bold my-4">you can find me on social media:</h2>
+      <div class="flex flex-col gap-4">
+        <iframe
+          title="Discord user embed"
+          width="340"
+          height="72"
+          sandbox="allow-scripts"
+          src="https://widgets.vendicated.dev/user?id=329597208494211073&theme=dark&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"
+        ></iframe>
+        <ul class="flex gap-4 flex-col">
+          {
+            contactInfo.map(({ type, name, link, Icon }) => (
+              <li class="flex items-center justify-between">
+                <div class="flex items-center gap-3 text-xl">
+                  <Icon />
+                  <h3>{type}</h3>
+                </div>
+                <a
+                  href={link}
+                  class="px-3 rounded-full bg-muted hover:text-accent duration-150"
+                  target="_blank"
+                >
+                  {name}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </main>
 </Layout>
