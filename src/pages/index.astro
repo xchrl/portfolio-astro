@@ -1,8 +1,9 @@
 ---
-import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
-import { FaTwitter, FaGithub } from "react-icons/fa";
+import { FaTwitter, FaGithub, FaRegClock } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
+import { GrLocation } from "react-icons/gr";
+import Clock from "@/components/Clock";
 import ProjectCard from "@/components/ProjectCard";
 
 const contactInfo = [
@@ -28,36 +29,56 @@ const contactInfo = [
 ---
 
 <Layout>
-  <div>
-    <h1 class="text-4xl font-bold my-4">
+  <div class="flex flex-col gap-2 md:gap-8 text-center md:text-start">
+    <h1>
       👋 hey hey, i'm <span class="text-accent">charlie</span>!
     </h1>
-    <p>
-      i'm a self-taught front-end developer that's incredibly passionate about
-      programming and ui development.
-    </p>
-    <p>
-      i'm also really into gaming (especially gacha games), esports (mainly
-      counter strike and rocket league), a little bit of speedcubing and
-      keyboard modding.
-    </p>
+    <div>
+      <p>
+        i'm a self-taught front-end developer that's incredibly passionate about
+        programming and ui development.
+      </p>
+      <p>
+        i'm also really into gaming (especially gacha games), esports (mainly
+        counter strike and rocket league), a little bit of speedcubing and
+        keyboard modding.
+      </p>
+    </div>
+    <div class="flex flex-col md:flex-row items-center gap-4 md:gap-12">
+      <div class="flex flex-row items-center gap-3">
+        <div
+          class="border-1 bg-primary-foreground border-accent w-fit p-3 rounded-sm"
+        >
+          <GrLocation />
+        </div>
+        <span>przemyśl, poland</span>
+      </div>
+      <div class="flex flex-row items-center gap-3">
+        <div
+          class="border-1 bg-primary-foreground border-accent w-fit p-3 rounded-sm"
+        >
+          <FaRegClock />
+        </div>
+        <Clock client:load />
+      </div>
+    </div>
   </div>
-  <div class="flex flex-col gap-4 mt-4">
-    <h2 class="text-3xl font-bold">you can find me on social media:</h2>
+  <div class="flex flex-col gap-4 text-center md:text-start">
+    <h2>you can find me on social media:</h2>
     <iframe
       title="Discord user embed"
       width="340"
       height="72"
       sandbox="allow-scripts"
       src="https://widgets.vendicated.dev/user?id=329597208494211073&theme=dark&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"
-      class="hover:scale-110 duration-150"></iframe>
+      class="hover:scale-110 duration-150 self-center md:self-start"></iframe>
     <ul class="flex gap-4 flex-col">
       {
         contactInfo.map(({ type, name, link, Icon }) => (
-          <li class="flex items-center justify-between">
+          <li class="flex flex-col md:flex-row gap-2 items-center justify-between">
             <div class="flex items-center gap-3 text-xl">
               <Icon />
-              <h3>{type}</h3>
+              <h4>{type}</h4>
             </div>
             <a
               href={link}
@@ -71,8 +92,8 @@ const contactInfo = [
       }
     </ul>
   </div>
-  <div>
-    <h2 class="text-3xl font-bold my-4">
+  <div class="flex flex-col gap-4">
+    <h2 class="text-center md:text-start">
       here's some of the <span class="text-accent">projects</span> i've worked on:
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
