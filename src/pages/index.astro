@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
-import Repos from "@/components/Repos.astro";
+import ProjectCard from "@/components/ProjectCard";
 
 const contactInfo = [
   {
@@ -76,7 +76,7 @@ const contactInfo = [
       here's some of the <span class="text-accent">projects</span> i've worked on:
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-      <Repos />
+      <ProjectCard client:load />
     </div>
   </div>
 </Layout>
