@@ -50,7 +50,7 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
       {menuOpen && (
         <div className="flex flex-col items-center gap-4">
           {routes.map(({ route, label }) =>
-            currentRoute == route ? (
+            currentRoute == route || currentRoute == route + "/" ? (
               <span className="underline">{label}</span>
             ) : (
               <a href={route} className="hover:text-accent duration-150">
