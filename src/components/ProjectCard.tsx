@@ -28,20 +28,11 @@ export default function ProjectCard() {
     ];
 
     const octokit = new Octokit({
-      auth: "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",
+      auth: import.meta.env.PUBLIC_GITHUB_AUTH_KEY,
     });
 
     async function fetchRepos() {
-      const data = await Promise.all(
-        repos.map((name) =>
-          octokit
-            .request("GET /repos/{owner}/{repo}", {
-              owner: "xchrl",
-              repo: name,
-            })
-            .then((res) => res.data)
-        )
-      );
+      const data = await fetch("/api/github").then((res) => res.json());
       const colors = await fetch(
         "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
       )
