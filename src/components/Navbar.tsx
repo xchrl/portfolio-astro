@@ -22,7 +22,7 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
         </div>
         <div className="hidden xl:flex gap-4">
           {routes.map(({ route, label }) =>
-            currentRoute == route ? (
+            currentRoute == route || currentRoute == route + "/" ? (
               <span className="underline route-disabled" key={route}>
                 {label}
               </span>
