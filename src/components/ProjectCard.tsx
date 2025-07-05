@@ -81,7 +81,7 @@ export default function ProjectCard() {
             </CardHeader>
             <CardContent>
               <h4 className="text-xl font-bold">{data.name}</h4>
-              <p className="text-sm">{data.description}</p>
+              <p>{data.description}</p>
             </CardContent>
             <CardFooter className="mt-auto flex gap-2">
               <span

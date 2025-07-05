@@ -1,0 +1,30 @@
+---
+const { array, name, description } = Astro.props;
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import ToolItem from "@/components/ToolItem.astro";
+---
+
+<Card>
+  <CardHeader>
+    <CardTitle><h3>{name}</h3></CardTitle>
+    {description && <CardDescription>{description}</CardDescription>}
+  </CardHeader>
+  <CardContent>
+    <ul class="flex flex-wrap gap-2">
+      {
+        array.map((item: string) => (
+          <li>
+            <ToolItem name={item} />
+          </li>
+        ))
+      }
+    </ul>
+  </CardContent>
+</Card>

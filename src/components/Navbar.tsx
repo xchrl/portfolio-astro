@@ -23,9 +23,15 @@ export default function Navbar({ currentRoute }: { currentRoute: string }) {
         <div className="hidden xl:flex gap-4">
           {routes.map(({ route, label }) =>
             currentRoute == route ? (
-              <span className="underline route-disabled">{label}</span>
+              <span className="underline route-disabled" key={route}>
+                {label}
+              </span>
             ) : (
-              <a href={route} className="hover:text-accent duration-150">
+              <a
+                href={route}
+                className="hover:text-accent duration-150"
+                key={route}
+              >
                 {label}
               </a>
             )
