@@ -58,10 +58,6 @@ h6 {
   @apply text-lg;
 }
 
-p:not([data-slot="card"] p) {
-  @apply lg:text-lg;
-}
-
 nav a,
 nav span {
   @apply text-lg;

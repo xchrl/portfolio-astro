@@ -1,7 +1,7 @@
 {
   "name": "portfolio-astro",
   "type": "module",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "scripts": {
     "dev": "astro dev --host --port 3000",
     "build": "astro build",
@@ -13,6 +13,7 @@
     "@octokit/core": "^7.0.2",
     "@radix-ui/react-avatar": "^1.1.10",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
+    "@radix-ui/react-separator": "^1.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/vite": "^4.1.11",
     "@types/react": "^19.1.8",

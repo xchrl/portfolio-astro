@@ -12,6 +12,7 @@ import { GrLocation } from "react-icons/gr";
 import Clock from "@/components/Clock";
 import ProjectCard from "@/components/ProjectCard";
 import { BsPerson } from "react-icons/bs";
+import { Separator } from "@/components/ui/separator";
 
 const contactInfo = [
   {
@@ -60,32 +61,35 @@ const contactInfo = [
         keyboard modding.
       </p>
     </div>
-    <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+    <div
+      class="flex flex-col lg:flex-row items-center justify-center gap-4 md:gap-4 lg:gap-8 text-sm"
+    >
       <div class="flex flex-row items-center gap-3">
-        <div class="border bg-background border-accent p-3 rounded-sm">
+        <div class="border border-accent p-2 rounded-sm">
           <BsPerson />
         </div>
         <span>he/him</span>
       </div>
       <div class="flex flex-row items-center gap-3">
-        <div class="border bg-background border-accent p-3 rounded-sm">
+        <div class="border border-accent p-2 rounded-sm">
           <GrLocation />
         </div>
         <span>przemyśl, poland</span>
       </div>
       <div class="flex flex-row items-center gap-3">
-        <div class="border bg-background border-accent p-3 rounded-sm">
+        <div class="border border-accent p-2 rounded-sm">
           <FaRegClock />
         </div>
         <Clock client:load />
       </div>
-      <p
-        class="bg-green-600/20 px-4 py-2 border border-green-600 w-fit rounded-md my-2 ml-auto"
+      <span
+        class="bg-green-600/20 px-4 py-2 border border-green-600 rounded-md lg:ml-auto text-center"
       >
         available for internships/work/commissions
-      </p>
+      </span>
     </div>
   </div>
+  <Separator />
   <div class="flex flex-col gap-4 text-center md:text-start">
     <h2>you can find me on social media:</h2>
     <ul class="flex gap-4 flex-col">
@@ -122,6 +126,7 @@ const contactInfo = [
       }
     </ul>
   </div>
+  <Separator />
   <div class="flex flex-col gap-4">
     <h2 class="text-center md:text-start">
       here's some of the <span class="text-accent">projects</span> i've worked on:
