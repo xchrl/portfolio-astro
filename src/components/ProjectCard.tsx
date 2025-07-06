@@ -50,7 +50,7 @@ export default function ProjectCard() {
         return (
           <Card
             key={data.id}
-            className="flex hover:scale-110 hover:bg-accent border-accent/40 hover:text-background duration-150"
+            className="flex hover:scale-110 hover:bg-accent hover:text-background duration-150"
           >
             <CardHeader>
               <CardTitle className="flex gap-2">

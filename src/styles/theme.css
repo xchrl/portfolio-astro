@@ -4,6 +4,26 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.banner {
+  background-image: url("../assets/banner.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  mask-image: linear-gradient(to bottom, var(--background), rgba(0, 0, 0, 0));
+}
+
+:root {
+  --background: oklab(0.958184 0.0128697 0.00403672);
+  --accent: #cf7c7c;
+  --sidebar: oklab(0.933528 0.0206833 0.0065456);
+}
+
+.dark {
+  --background: #181818;
+  --accent: #eebebe;
+  --sidebar: oklch(0.205 0 0);
+}
+
 /* Typography rules */
 
 h1,

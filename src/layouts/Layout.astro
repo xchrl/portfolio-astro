@@ -3,9 +3,35 @@ import Navbar from "@/components/Navbar";
 import "../styles/global.css";
 import "../styles/theme.css";
 import Footer from "@/components/Footer.astro";
+import { ThemeToggle } from "@/components/ThemeToggle";
+
+const isOnHome = Astro.url.pathname == "/";
 ---
 
-<!doctype html>
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>
+
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
@@ -14,10 +40,11 @@ import Footer from "@/components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <title>xchrl | portfolio</title>
   </head>
-  <body class="dark font-display">
+  <body class="font-display">
     <header class="w-full bg-sidebar">
       <Navbar currentRoute={Astro.url.pathname} client:load />
     </header>
+    <div class={`w-svw h-40 lg:h-80 banner ${isOnHome ? "" : "hidden"}`}></div>
     <main
       class="container mx-auto px-4 lg:px-48 py-4 lg:py-8 my-4 flex flex-col gap-4 md:gap-12 text-center md:text-start"
     >
