@@ -17,7 +17,7 @@ import ToolItem from "@/components/ToolItem.astro";
     {description && <CardDescription>{description}</CardDescription>}
   </CardHeader>
   <CardContent>
-    <ul class="flex flex-wrap gap-2">
+    <ul class="flex flex-wrap justify-center md:justify-start gap-2">
       {
         array.map((item: string) => (
           <li>
