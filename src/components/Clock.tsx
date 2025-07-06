@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { DateTime } from "luxon";
+import moment from "moment-timezone";
 
 function Clock() {
   const timeFormat = new Intl.DateTimeFormat([], {
@@ -14,9 +16,15 @@ function Clock() {
     setInterval(() => setTime(timeFormat.format(new Date())), 1000);
   }, []);
 
+  const timeZone = moment
+    .tz(new Date(), "Europe/Warsaw")
+    .format("z")
+    .toLowerCase();
+
   return (
     <span>
-      cest ∙ <span className="text-muted-foreground">{time.toString()}</span>
+      {timeZone} ∙{" "}
+      <span className="text-muted-foreground">{time.toString()}</span>
     </span>
   );
 }

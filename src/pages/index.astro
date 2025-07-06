@@ -13,6 +13,7 @@ import Clock from "@/components/Clock";
 import ProjectCard from "@/components/ProjectCard";
 import { BsPerson } from "react-icons/bs";
 import { Separator } from "@/components/ui/separator";
+import avatar from "@/assets/avatar.jpg";
 
 const contactInfo = [
   {
@@ -44,6 +45,15 @@ const contactInfo = [
 
 <Layout>
   <div class="flex flex-col gap-2 md:gap-8 text-center md:text-start">
+    <!-- Avatar -->
+    <div class="h-8 relative w-full">
+      <img
+        src={avatar.src}
+        alt="Avatar"
+        class="w-24 lg:w-42 absolute bottom-0 left-0 right-0 mx-auto md:mx-0 rounded-full border-4 border-accent hover:scale-110 duration-150"
+      />
+    </div>
+    <!-- Hero section -->
     <div>
       <h1>
         👋 hey hey, i'm <span class="text-accent">charlie</span>!
@@ -90,6 +100,7 @@ const contactInfo = [
     </div>
   </div>
   <Separator />
+  <!-- Contact -->
   <div class="flex flex-col gap-4 text-center md:text-start">
     <h2>you can find me on social media:</h2>
     <ul class="flex gap-4 flex-col">
@@ -127,6 +138,7 @@ const contactInfo = [
     </ul>
   </div>
   <Separator />
+  <!-- Projects -->
   <div class="flex flex-col gap-4">
     <h2 class="text-center md:text-start">
       here's some of the <span class="text-accent">projects</span> i've worked on:
