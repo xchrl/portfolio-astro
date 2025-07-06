@@ -1,12 +1,66 @@
 ---
+import ContactCard from "@/components/ContactCard.astro";
+import ContactForm from "@/components/ContactForm";
+import { Separator } from "@/components/ui/separator";
 import Layout from "@/layouts/Layout.astro";
+import { FaDiscord, FaTwitter } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
+
+const contactData = [
+  {
+    title: "Discord",
+    Icon: FaDiscord,
+    content:
+      "i'm available on discord pretty much all day, this is the best way to contact me!",
+    responseProbability: 1,
+  },
+  {
+    title: "Twitter",
+    Icon: FaTwitter,
+    content:
+      "i check twitter pretty much every hour, this is the second best way to contact me!",
+    href: "https://x.com/_xchrl",
+    responseProbability: 0.9,
+  },
+  {
+    title: "Form below",
+    Icon: IoMdMail,
+    content:
+      "the form below sends me a personalized e-mail, that gets more priority than my usual mails!",
+    responseProbability: 0.8,
+  },
+  {
+    title: "Email",
+    Icon: IoMdMail,
+    content:
+      "i don't usually check my mail, however i'm sure to get a notification if your mail had arrived!",
+    href: "mailto:michalbronicki85@gmail.com",
+    responseProbability: 0.6,
+  },
+];
 ---
 
 <Layout>
-  <h1>
-    in progress, if you urgently need contact, use one of the options listed <a
-      href="/"
-      class="text-accent hover:underline">here</a
-    >
-  </h1>
+  <div>
+    <h1>📋️ want to contact <span class="text-accent">me</span>?</h1>
+    <h4 class="text-muted-foreground">
+      use one of the options listed here! the options are listed in order of how
+      likely i am to respond.
+    </h4>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+    {
+      contactData.map(({ title, Icon, content, href, responseProbability }) => (
+        <ContactCard
+          title={title}
+          Icon={Icon}
+          content={content}
+          href={href}
+          responseProbability={responseProbability}
+        />
+      ))
+    }
+  </div>
+  <Separator />
+  <ContactForm client:load />
 </Layout>

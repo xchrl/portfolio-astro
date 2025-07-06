@@ -1,0 +1,67 @@
+---
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { FaExternalLinkAlt } from "react-icons/fa";
+const { Icon, title, content, href, responseProbability } = Astro.props;
+
+const value = Math.max(0, Math.min(1, responseProbability));
+
+const hue = value * 120;
+
+const saturation = 80;
+const lightness = 70;
+
+const colorLight = `hsl(${hue}, ${saturation}%, ${lightness - 40}%)`;
+const colorDark = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+
+let footer;
+
+if (value === 1) {
+  footer = "Guaranteed respnose";
+} else if (value >= 0.75 && value < 1) {
+  footer = "Highly likely to respond";
+} else if (value >= 0.5 && value < 0.75) {
+  footer = "Likely to respond";
+} else if (value >= 0.25 && value < 0.5) {
+  footer = "Unlikely to respond";
+} else if (value > 0 && value < 0.25) {
+  footer = "Very unlikely to respond";
+} else {
+  console.log("Zero or invalid value");
+}
+---
+
+<Card className="hover:scale-110 duration-150">
+  <CardHeader>
+    <CardTitle className="flex gap-4 text-2xl items-center">
+      <Icon />
+      {title}
+    </CardTitle>
+    {
+      href && (
+        <CardAction>
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            <FaExternalLinkAlt />
+          </a>
+        </CardAction>
+      )
+    }
+  </CardHeader>
+  <CardContent>
+    <p>{content}</p>
+  </CardContent>
+  <CardFooter className="self-end">
+    <p class="block dark:hidden" style={{ color: colorLight }}>
+      {footer} ∙ {responseProbability * 100}%
+    </p>
+    <p class="hidden dark:block" style={{ color: colorDark }}>
+      {footer} ∙ {responseProbability * 100}%
+    </p>
+  </CardFooter>
+</Card>
