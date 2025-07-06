@@ -16,12 +16,14 @@
   --background: oklab(0.958184 0.0128697 0.00403672);
   --accent: #cf7c7c;
   --sidebar: oklab(0.933528 0.0206833 0.0065456);
+  --card: #fcf1f1;
 }
 
 .dark {
   --background: #181818;
   --accent: #eebebe;
   --sidebar: oklch(0.205 0 0);
+  --card: #212121;
 }
 
 /* Typography rules */

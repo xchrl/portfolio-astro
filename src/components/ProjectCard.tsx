@@ -9,7 +9,6 @@ import {
   CardContent,
   CardFooter,
 } from "@/components/ui/card";
-import { Octokit } from "@octokit/core";
 import type { Endpoints } from "@octokit/types";
 import { type ColorsMap } from "@/types/Colors";
 
@@ -19,21 +18,9 @@ export default function ProjectCard() {
   const [colors, setColors] = useState<ColorsMap>({});
 
   useEffect(() => {
-    const repos = [
-      "portfolio-astro",
-      "weather-app",
-      "calculator-app",
-      "portfolio",
-      "event-deadline-viewer",
-    ];
-
-    const octokit = new Octokit({
-      auth: import.meta.env.PUBLIC_GITHUB_AUTH_KEY,
-    });
-
     async function fetchRepos() {
       const data = await fetch("/api/github").then((res) => res.json());
-      const colors = await fetch(
+      await fetch(
         "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
       )
         .then((res) => res.json())

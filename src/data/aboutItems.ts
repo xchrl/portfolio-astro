@@ -21,7 +21,6 @@ import VisualStudio from "@/assets/visual-studio.svg";
 import Neovim from "@/assets/neovim.svg";
 import Cursor from "@/assets/cursor.svg";
 import AndroidStudio from "@/assets/android-studio.svg";
-import { VscCode } from "react-icons/vsc";
 
 type TechnologyEntry = {
   icon: ImageMetadata | "";
