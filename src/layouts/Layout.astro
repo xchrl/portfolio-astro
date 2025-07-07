@@ -1,5 +1,5 @@
 ---
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/Navbar.astro";
 import "../styles/global.css";
 import "../styles/theme.css";
 import Footer from "@/components/Footer.astro";
@@ -41,7 +41,7 @@ const isOnHome = Astro.url.pathname == "/";
   </head>
   <body class="font-display">
     <header class="w-full bg-sidebar">
-      <Navbar currentRoute={Astro.url.pathname} client:load />
+      <Navbar />
     </header>
     <div class={`w-svw h-40 lg:h-80 banner ${isOnHome ? "" : "hidden"}`}></div>
     <main

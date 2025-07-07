@@ -1,46 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import {
-  FaTwitter,
-  FaGithub,
-  FaRegClock,
-  FaSteam,
-  FaDiscord,
-} from "react-icons/fa";
-import { IoMdMail } from "react-icons/io";
+import { FaDiscord } from "react-icons/fa";
 import { GrLocation } from "react-icons/gr";
-import Clock from "@/components/Clock";
+import Clock from "@/components/Clock.astro";
 import ProjectCard from "@/components/ProjectCard";
 import { BsPerson } from "react-icons/bs";
 import { Separator } from "@/components/ui/separator";
 import avatar from "@/assets/avatar.jpg";
+import { contactInfo } from "@/data/contact";
+import { fetchRepos, fetchLanguageColors } from "@/lib/github";
 
-const contactInfo = [
-  {
-    type: "x (fka twitter)",
-    name: "@_xchrl",
-    link: "https://twitter.com/@_xchrl",
-    Icon: FaTwitter,
-  },
-  {
-    type: "steam",
-    name: "mr ekk",
-    link: "https://steamcommunity.com/profiles/76561198439465473/",
-    Icon: FaSteam,
-  },
-  {
-    type: "github",
-    name: "xchrl",
-    link: "https://github.com/xchrl",
-    Icon: FaGithub,
-  },
-  {
-    type: "email",
-    name: "michalbronicki85@gmail.com",
-    link: "mailto:michalbronicki85@gmail.com",
-    Icon: IoMdMail,
-  },
-];
+const data = await fetchRepos(Astro);
+const colors = await fetchLanguageColors();
 ---
 
 <Layout>
@@ -56,7 +27,7 @@ const contactInfo = [
     <!-- Hero section -->
     <div>
       <h1>
-        👋 hey hey, i'm <span class="text-accent">charlie</span>!
+        👋 hey hey, i'm <span class="text-gradient">charlie</span>!
       </h1>
       <h4 class="text-muted-foreground">front-end dev</h4>
     </div>
@@ -86,12 +57,7 @@ const contactInfo = [
         </div>
         <span>przemyśl, poland</span>
       </div>
-      <div class="flex flex-row items-center gap-3">
-        <div class="border border-accent p-2 rounded-sm">
-          <FaRegClock />
-        </div>
-        <Clock client:load />
-      </div>
+      <Clock />
       <span
         class="bg-green-600/20 px-4 py-2 border border-green-600 rounded-md lg:ml-auto text-center"
       >
@@ -114,8 +80,16 @@ const contactInfo = [
           width="340"
           height="72"
           sandbox="allow-scripts"
+          src="https://widgets.vendicated.dev/user?id=329597208494211073&theme=light&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"
+          class="block dark:hidden hover:scale-110 duration-150 self-center md:self-start"
+        ></iframe>
+        <iframe
+          title="Discord user embed"
+          width="340"
+          height="72"
+          sandbox="allow-scripts"
           src="https://widgets.vendicated.dev/user?id=329597208494211073&theme=dark&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"
-          class="hover:scale-110 duration-150 self-center md:self-start"
+          class="hidden dark:block hover:scale-110 duration-150 self-center md:self-start"
         ></iframe>
       </li>
       {
@@ -144,7 +118,20 @@ const contactInfo = [
       here's some of the <span class="text-accent">projects</span> i've worked on:
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-      <ProjectCard client:load />
+      {
+        data.map(({ id, full_name, url, name, description, language }) => (
+          <ProjectCard
+            id={id}
+            fullName={full_name}
+            url={url}
+            name={name}
+            description={description}
+            language={language}
+            color={colors[language ?? "Ignore List"]?.color ?? "#000"}
+            client:load
+          />
+        ))
+      }
     </div>
   </div>
 </Layout>

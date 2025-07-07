@@ -32,6 +32,11 @@
   --brightness: 60%;
 }
 
+.text-gradient {
+  @apply bg-gradient-to-r from-[#a1c4fd] to-[#c2e9fb] bg-clip-text
+    text-transparent;
+}
+
 /* Typography rules */
 
 h1,

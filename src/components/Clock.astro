@@ -1,0 +1,40 @@
+---
+import moment from "moment-timezone";
+import { FaRegClock } from "react-icons/fa";
+const timeFormat = new Intl.DateTimeFormat([], {
+  timeZone: "Europe/Warsaw",
+  hour: "numeric",
+  minute: "numeric",
+  second: "numeric",
+  hour12: false,
+});
+
+const timeZone = moment
+  .tz(new Date(), "Europe/Warsaw")
+  .format("z")
+  .toLowerCase();
+---
+
+<div class="flex flex-row items-center gap-3">
+  <div class="border border-accent p-2 rounded-sm">
+    <FaRegClock />
+  </div>
+  <span>
+    {timeZone} ∙{" "}
+    <span class="text-muted-foreground" id="clock"></span>
+  </span>
+</div>
+<script is:inline>
+  const timeFormat = new Intl.DateTimeFormat([], {
+    timeZone: "Europe/Warsaw",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    hour12: false,
+  });
+  let time;
+  setInterval(() => {
+    time = timeFormat.format(new Date());
+    document.getElementById("clock").textContent = time.toString();
+  }, 1000);
+</script>

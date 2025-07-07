@@ -12,7 +12,7 @@ const icon = items[name].icon;
   target="_blank"
 >
   <img
-    src={icon != "" ? icon.src : ""}
+    src={icon && icon.src}
     alt={name}
     width="16"
     class={icon != "" ? "" : "hidden"}
