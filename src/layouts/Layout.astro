@@ -30,7 +30,6 @@ const isOnHome = Astro.url.pathname == "/";
     });
   }
 </script>
-
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
@@ -38,9 +37,13 @@ const isOnHome = Astro.url.pathname == "/";
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>xchrl | portfolio</title>
+    <script>
+      import { Observer } from "tailwindcss-intersect";
+      Observer.start();
+    </script>
   </head>
   <body class="font-display">
-    <header class="w-full bg-sidebar">
+    <header class="w-full">
       <Navbar />
     </header>
     <div class={`w-svw h-40 lg:h-80 banner ${isOnHome ? "" : "hidden"}`}></div>

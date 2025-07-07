@@ -59,7 +59,7 @@ const games = [
 <Layout>
   <h1>🤔 so, who am i?</h1>
   <div
-    class="p-4 bg-accent/20 border rounded-md border-accent flex flex-col gap-8 shadow-md"
+    class="p-4 bg-accent/20 border rounded-md border-accent flex flex-col gap-8 shadow-md intersect-once intersect:motion-preset-slide-left"
   >
     <p>
       as mentioned previously, i am a front-end developer that had to learn most
@@ -90,7 +90,9 @@ const games = [
       (highlighted items are those i love the most)
     </p>
   </div>
-  <div class="flex gap-4 flex-col">
+  <div
+    class="flex gap-4 flex-col intersect-once intersect:motion-preset-slide-right"
+  >
     <AboutCard
       array={technologiesFrontEnd}
       name="front-end"
@@ -104,7 +106,9 @@ const games = [
   </div>
   <Separator />
   <h2>other than technologies:</h2>
-  <div class="flex flex-col gap-4">
+  <div
+    class="flex flex-col gap-4 intersect-once intersect:motion-preset-slide-up"
+  >
     <AboutCard array={editors} name="text editors/ide's" />
     <AboutCard array={games} name="games i've completed/i adore" />
   </div>

@@ -15,7 +15,9 @@ const colors = await fetchLanguageColors();
 ---
 
 <Layout>
-  <div class="flex flex-col gap-2 md:gap-8 text-center md:text-start">
+  <div
+    class="flex flex-col gap-2 md:gap-8 text-center md:text-start intersect-once intersect:motion-preset-slide-left"
+  >
     <!-- Avatar -->
     <div class="h-8 relative w-full">
       <img
@@ -67,7 +69,9 @@ const colors = await fetchLanguageColors();
   </div>
   <Separator />
   <!-- Contact -->
-  <div class="flex flex-col gap-4 text-center md:text-start">
+  <div
+    class="flex flex-col gap-4 text-center md:text-start intersect-once intersect:motion-preset-slide-right"
+  >
     <h2>you can find me on social media:</h2>
     <ul class="flex gap-4 flex-col">
       <li class="flex flex-col md:flex-row gap-2 items-center justify-between">
@@ -113,7 +117,9 @@ const colors = await fetchLanguageColors();
   </div>
   <Separator />
   <!-- Projects -->
-  <div class="flex flex-col gap-4">
+  <div
+    class="flex flex-col gap-4 intersect-once intersect:motion-preset-slide-up"
+  >
     <h2 class="text-center md:text-start">
       here's some of the <span class="text-accent">projects</span> i've worked on:
     </h2>
