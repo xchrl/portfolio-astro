@@ -9,6 +9,8 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  /* Comment/uncomment line below for parallax effect on banner */
+  background-attachment: fixed;
   mask-image: linear-gradient(to bottom, var(--background), rgba(0, 0, 0, 0));
 }
 
