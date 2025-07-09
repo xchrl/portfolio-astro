@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar.astro";
 import "../styles/global.css";
 import "../styles/theme.css";
 import Footer from "@/components/Footer.astro";
+import { Toaster } from "@/components/ui/sonner";
 
 const isOnHome = Astro.url.pathname == "/";
 ---
@@ -34,11 +35,15 @@ const isOnHome = Astro.url.pathname == "/";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="charlie's website" />
+    <meta name="author" content="xchrl" />
+    <meta name="keywords" content="xchrl, charlie, portfolio, website" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>xchrl | portfolio</title>
   </head>
   <body class="font-display overflow-x-hidden">
+    <Toaster position="bottom-right" client:load />
     <header class="w-full sticky top-0 bg-sidebar/90 z-1 backdrop-blur-md">
       <Navbar />
     </header>
