@@ -65,7 +65,7 @@ export default function ContactForm() {
         />
         <Textarea
           name="message"
-          placeholder="Message"
+          placeholder="message"
           className="sm:col-span-2 placeholder:text-red-400 placeholder:font-bold"
           required
         />

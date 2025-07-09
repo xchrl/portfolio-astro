@@ -24,15 +24,15 @@ const colorDark = `hsl(${hue}, ${saturation}%, ${lightnessDark}%)`;
 let footer;
 
 if (value === 1) {
-  footer = "Guaranteed respnose";
+  footer = "guaranteed respnose";
 } else if (value >= 0.75 && value < 1) {
-  footer = "Highly likely to respond";
+  footer = "highly likely to respond";
 } else if (value >= 0.5 && value < 0.75) {
-  footer = "Likely to respond";
+  footer = "likely to respond";
 } else if (value >= 0.25 && value < 0.5) {
-  footer = "Unlikely to respond";
+  footer = "unlikely to respond";
 } else if (value > 0 && value < 0.25) {
-  footer = "Very unlikely to respond";
+  footer = "very unlikely to respond";
 } else {
   console.log("Zero or invalid value");
 }
