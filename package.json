@@ -1,7 +1,7 @@
 {
   "name": "portfolio-astro",
   "type": "module",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "scripts": {
     "dev": "astro dev --host --port 3000",
     "build": "astro build",
@@ -33,8 +33,6 @@
   "devDependencies": {
     "@octokit/types": "^14.1.0",
     "@tailwindcss/typography": "^0.5.16",
-    "tailwindcss-intersect": "^2.2.0",
-    "tailwindcss-motion": "^1.1.1",
     "tw-animate-css": "^1.3.5"
   }
 }

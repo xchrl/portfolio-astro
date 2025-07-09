@@ -1,13 +1,6 @@
 ---
 import moment from "moment-timezone";
 import { FaRegClock } from "react-icons/fa";
-const timeFormat = new Intl.DateTimeFormat([], {
-  timeZone: "Europe/Warsaw",
-  hour: "numeric",
-  minute: "numeric",
-  second: "numeric",
-  hour12: false,
-});
 
 const timeZone = moment
   .tz(new Date(), "Europe/Warsaw")

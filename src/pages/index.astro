@@ -15,15 +15,13 @@ const colors = await fetchLanguageColors();
 ---
 
 <Layout>
-  <div
-    class="flex flex-col gap-2 md:gap-8 text-center md:text-start intersect-once intersect:motion-preset-slide-left"
-  >
+  <div class="flex flex-col gap-2 md:gap-8">
     <!-- Avatar -->
-    <div class="h-8 relative w-full">
+    <div class="h-4 lg:h-8 relative">
       <img
         src={avatar.src}
         alt="Avatar"
-        class="w-24 lg:w-42 absolute bottom-0 left-0 right-0 mx-auto md:mx-0 rounded-full border-4 border-accent hover:scale-110 duration-150"
+        class="w-24 lg:w-42 absolute bottom-0 left-0 right-0 mx-auto md:mx-0 rounded-full border-2 md:border-4 border-accent hover:scale-110 duration-150"
       />
     </div>
     <!-- Hero section -->
@@ -45,9 +43,9 @@ const colors = await fetchLanguageColors();
       </p>
     </div>
     <div
-      class="flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-8 text-sm"
+      class="flex flex-col lg:flex-row items-center justify-center md:items-start lg:items-center gap-4 lg:gap-8"
     >
-      <div class="flex flex-row items-center gap-3">
+      <div class="flex items-center gap-3">
         <div class="border border-accent p-2 rounded-sm">
           <BsPerson />
         </div>
@@ -61,7 +59,7 @@ const colors = await fetchLanguageColors();
       </div>
       <Clock />
       <span
-        class="bg-green-600/20 px-4 py-2 border border-green-600 rounded-md lg:ml-auto text-center"
+        class="bg-green-600/20 px-4 py-2 border border-green-600 rounded-md md:ml-auto text-center"
       >
         available for internships/work/commissions
       </span>
@@ -69,12 +67,12 @@ const colors = await fetchLanguageColors();
   </div>
   <Separator />
   <!-- Contact -->
-  <div
-    class="flex flex-col gap-4 text-center md:text-start intersect-once intersect:motion-preset-slide-right"
-  >
+  <div class="flex flex-col gap-4 text-center md:text-start">
     <h2>you can find me on social media:</h2>
-    <ul class="flex gap-4 flex-col">
-      <li class="flex flex-col md:flex-row gap-2 items-center justify-between">
+    <ul class="flex flex-col gap-4">
+      <li
+        class="flex flex-col md:flex-row gap-y-2 items-center justify-between"
+      >
         <div class="flex items-center gap-3 text-xl">
           <FaDiscord />
           <h4>discord</h4>
@@ -85,7 +83,7 @@ const colors = await fetchLanguageColors();
           height="72"
           sandbox="allow-scripts"
           src="https://widgets.vendicated.dev/user?id=329597208494211073&theme=light&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"
-          class="block dark:hidden hover:scale-110 duration-150 self-center md:self-start"
+          class="block dark:hidden hover:scale-110 duration-150 max-w-full"
         ></iframe>
         <iframe
           title="Discord user embed"
@@ -93,7 +91,7 @@ const colors = await fetchLanguageColors();
           height="72"
           sandbox="allow-scripts"
           src="https://widgets.vendicated.dev/user?id=329597208494211073&theme=dark&banner=false&full-banner=false&rounded-corners=true&discord-icon=true&badges=false&guess-nitro=false&"
-          class="hidden dark:block hover:scale-110 duration-150 self-center md:self-start"
+          class="hidden dark:block hover:scale-110 duration-150 max-w-full"
         ></iframe>
       </li>
       {
@@ -117,17 +115,14 @@ const colors = await fetchLanguageColors();
   </div>
   <Separator />
   <!-- Projects -->
-  <div
-    class="flex flex-col gap-4 intersect-once intersect:motion-preset-slide-up"
-  >
+  <div class="flex flex-col gap-4">
     <h2 class="text-center md:text-start">
       here's some of the <span class="text-accent">projects</span> i've worked on:
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       {
-        data.map(({ id, full_name, svn_url, name, description, language }) => (
+        data.map(({ full_name, svn_url, name, description, language }) => (
           <ProjectCard
-            id={id}
             fullName={full_name}
             url={svn_url}
             name={name}

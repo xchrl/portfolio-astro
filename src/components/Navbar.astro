@@ -7,8 +7,8 @@ const routes = [
     route: "/",
     label: "home",
   },
-  { route: "/about", label: "about" },
-  { route: "/contact", label: "contact" },
+  { route: "/about/", label: "about" },
+  { route: "/contact/", label: "contact" },
 ];
 ---
 
@@ -16,7 +16,7 @@ const routes = [
   <div class="flex justify-center items-center gap-4">
     {
       routes.map(({ route, label }) =>
-        currentRoute == route || currentRoute == route + "/" ? (
+        currentRoute == route ? (
           <span class="underline route-disabled">{label}</span>
         ) : (
           <a href={route} class="hover:text-accent duration-150">

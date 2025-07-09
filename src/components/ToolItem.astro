@@ -1,6 +1,7 @@
 ---
-const { name } = Astro.props;
 import { items } from "@/data/aboutItems.ts";
+
+const { name } = Astro.props;
 
 const link = items[name].href;
 const icon = items[name].icon;
@@ -11,12 +12,6 @@ const icon = items[name].icon;
   href={link}
   target="_blank"
 >
-  <img
-    src={icon && icon.src}
-    alt={name}
-    width="16"
-    class={icon != "" ? "" : "hidden"}
-    loading="lazy"
-  />
+  {icon && <img src={icon.src} alt={name} width="16" loading="lazy" />}
   <span class="font-bold">{name}</span>
 </a>

@@ -8,17 +8,18 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { FaExternalLinkAlt } from "react-icons/fa";
-const { Icon, title, content, href, responseProbability } = Astro.props;
 
+const { Icon, title, content, href, responseProbability } = Astro.props;
 const value = Math.max(0, Math.min(1, responseProbability));
 
 const hue = value * 120;
 
 const saturation = 80;
-const lightness = 70;
+const lightnessDark = 70;
+const lightnessLight = lightnessDark - 40;
 
-const colorLight = `hsl(${hue}, ${saturation}%, ${lightness - 40}%)`;
-const colorDark = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+const colorLight = `hsl(${hue}, ${saturation}%, ${lightnessLight}%)`;
+const colorDark = `hsl(${hue}, ${saturation}%, ${lightnessDark}%)`;
 
 let footer;
 

@@ -9,8 +9,7 @@ import {
   CardFooter,
 } from "@/components/ui/card";
 
-export default function ProjectCard({
-  id,
+function ProjectCard({
   fullName,
   url,
   name,
@@ -18,7 +17,6 @@ export default function ProjectCard({
   language,
   color,
 }: {
-  id: number;
   fullName: string;
   url: string;
   name: string;
@@ -63,3 +61,5 @@ export default function ProjectCard({
     </Card>
   );
 }
+
+export default ProjectCard;
