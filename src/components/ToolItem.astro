@@ -1,5 +1,6 @@
 ---
 import { items } from "@/data/aboutItems.ts";
+import { Image } from "astro:assets";
 
 const { name } = Astro.props;
 
@@ -12,6 +13,6 @@ const icon = items[name].icon;
   href={link}
   target="_blank"
 >
-  {icon && <img src={icon.src} alt={name} width="16" loading="lazy" />}
+  {icon && <Image src={icon} format="svg" alt={name + " icon"} width="16" />}
   <span class="font-bold">{name}</span>
 </a>

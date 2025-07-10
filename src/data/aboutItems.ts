@@ -23,7 +23,7 @@ import Cursor from "@/assets/cursor.svg";
 import AndroidStudio from "@/assets/android-studio.svg";
 
 type TechnologyEntry = {
-  icon: ImageMetadata | "";
+  icon?: ImageMetadata;
   href: string;
   highlight?: boolean;
 };
@@ -103,68 +103,54 @@ export const items: TechnologyMap = {
     href: "https://developer.android.com/studio",
   },
   "Genshin Impact": {
-    icon: "",
     href: "https://genshin.hoyoverse.com/",
     highlight: true,
   },
-  "Zenless Zone Zero": { icon: "", href: "https://zenless.hoyoverse.com/" },
+  "Zenless Zone Zero": { href: "https://zenless.hoyoverse.com/" },
   "Wuthering Waves": {
-    icon: "",
     href: "https://store.steampowered.com/app/3513350/Wuthering_Waves/",
     highlight: true,
   },
   "Girls' Frontline 2: Exilium": {
-    icon: "",
     href: "https://gf2exilium.sunborngame.com/",
   },
   Arknights: {
-    icon: "",
     href: "https://www.arknights.global/",
     highlight: true,
   },
   "Blue Archive": {
-    icon: "",
     href: "https://store.steampowered.com/app/3557620/Blue_Archive/",
   },
   "Rocket League": {
-    icon: "",
     href: "https://store.epicgames.com/en-US/p/rocket-league",
     highlight: true,
   },
   "Counter Strike 2": {
-    icon: "",
     href: "https://store.steampowered.com/app/730/CounterStrike_2/",
   },
   Rematch: {
-    icon: "",
     href: "https://store.steampowered.com/app/2138720/REMATCH/",
   },
   OMORI: {
-    icon: "",
     href: "https://store.steampowered.com/app/1150690/OMORI/",
     highlight: true,
   },
   "PAYDAY 2": {
-    icon: "",
     href: "https://store.steampowered.com/app/218620/PAYDAY_2/",
   },
-  "Half-Life": { icon: "", href: "https://www.half-life.com/en/home/" },
+  "Half-Life": { href: "https://www.half-life.com/en/home/" },
   "Hello Charlotte": {
-    icon: "",
     href: "https://store.steampowered.com/app/557630/Hello_Charlotte_EP2_Requiem_Aeternam_Deo/",
     highlight: true,
   },
   "Assetto Corsa": {
-    icon: "",
     href: "https://store.steampowered.com/app/244210/Assetto_Corsa/",
   },
   "End Roll": {
-    icon: "",
     href: "https://vgperson.com/games/endroll.htm",
     highlight: true,
   },
   "NEEDY STREAMER OVERLOAD": {
-    icon: "",
     href: "https://store.steampowered.com/app/1451940/NEEDY_GIRL_OVERDOSE/",
     highlight: true,
   },
