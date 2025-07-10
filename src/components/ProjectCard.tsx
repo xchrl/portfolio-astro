@@ -11,7 +11,6 @@ import {
 import { useEffect, useState } from "react";
 import type { Endpoints } from "@octokit/types";
 import type { ColorsMap } from "@/types/Colors";
-import type { AstroGlobal } from "astro";
 
 function ProjectCard({ url }: { url: string }) {
   type Repo = Endpoints["GET /repos/{owner}/{repo}"]["response"]["data"];
@@ -38,7 +37,7 @@ function ProjectCard({ url }: { url: string }) {
     getLanguageColors();
   }, []);
 
-  if (!data || data.length == 0)
+  if (!data || data.length == 0 || !colors)
     return (
       <h4 className="text-muted-foreground">Loading repository data...</h4>
     );

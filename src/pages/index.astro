@@ -8,11 +8,8 @@ import { BsPerson } from "react-icons/bs";
 import { Separator } from "@/components/ui/separator";
 import avatar from "@/assets/avatar.jpg";
 import { contactInfo } from "@/data/contact";
-import { fetchRepos, fetchLanguageColors } from "@/lib/github";
 import { Image } from "astro:assets";
 
-const data = await fetchRepos(Astro);
-const colors = await fetchLanguageColors();
 const url = new URL("/api/github", Astro.url).toString();
 ---
 

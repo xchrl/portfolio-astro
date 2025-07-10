@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { toast } from "sonner";
 import { Textarea } from "./ui/textarea";
-import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
+import emailjs, { type EmailJSResponseStatus } from "@emailjs/browser";
 import type { FormEvent } from "react";
 
 export default function ContactForm() {
@@ -49,19 +49,19 @@ export default function ContactForm() {
         className="grid grid-cols-1 sm:grid-cols-2 gap-4"
       >
         <Input
-          type="text"
-          id="text"
-          name="name"
-          placeholder="name/username"
-          className="placeholder:font-bold"
-        />
-        <Input
           type="email"
           id="email"
           name="email"
           placeholder="email"
           className="placeholder:text-red-400 placeholder:font-bold"
           required
+        />
+        <Input
+          type="text"
+          id="text"
+          name="name"
+          placeholder="name/username"
+          className="placeholder:font-bold"
         />
         <Textarea
           name="message"
