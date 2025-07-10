@@ -17,17 +17,39 @@ const timeZone = moment
     <span class="text-muted-foreground" id="clock"></span>
   </span>
 </div>
-<script is:inline>
-  const timeFormat = new Intl.DateTimeFormat([], {
-    timeZone: "Europe/Warsaw",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-    hour12: false,
-  });
-  let time;
-  setInterval(() => {
-    time = timeFormat.format(new Date());
-    document.getElementById("clock").textContent = time.toString();
-  }, 1000);
+<script>
+  // Wait until DOM is ready
+  document.addEventListener("astro:after-swap", startClock);
+  document.addEventListener("DOMContentLoaded", startClock);
+
+  function startClock() {
+    const clockElement = document.getElementById("clock");
+
+    // Exit if the clock isn't present
+    if (!clockElement) return;
+
+    const timeFormat = new Intl.DateTimeFormat([], {
+      timeZone: "Europe/Warsaw",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: false,
+    });
+
+    const updateClock = () => {
+      clockElement.textContent = timeFormat.format(new Date());
+    };
+
+    updateClock(); // initial update
+    const intervalId = setInterval(updateClock, 1000);
+
+    // Clean up interval on page swap
+    const stopClock = () => {
+      clearInterval(intervalId);
+      document.removeEventListener("astro:after-swap", startClock);
+      document.removeEventListener("astro:page-leave", stopClock);
+    };
+
+    document.addEventListener("astro:page-leave", stopClock);
+  }
 </script>

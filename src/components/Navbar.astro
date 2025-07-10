@@ -19,12 +19,16 @@ const routes = [
         currentRoute == route ? (
           <span class="underline route-disabled">{label}</span>
         ) : (
-          <a href={route} class="hover:text-accent duration-150">
+          <a
+            href={route}
+            class="hover:text-accent duration-150"
+            data-astro-prefetch="load"
+          >
             {label}
           </a>
         )
       )
     }
-    <ThemeToggle client:load />
+    <ThemeToggle client:load transition:persist />
   </div>
 </nav>

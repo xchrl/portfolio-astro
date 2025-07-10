@@ -13,6 +13,7 @@ import { Image } from "astro:assets";
 
 const data = await fetchRepos(Astro);
 const colors = await fetchLanguageColors();
+const url = new URL("/api/github", Astro.url).toString();
 ---
 
 <Layout>
@@ -122,32 +123,25 @@ const colors = await fetchLanguageColors();
       here's some of the <span class="text-accent">projects</span> i've worked on:
     </h2>
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-      {
-        data.map(({ full_name, svn_url, name, description, language }) => (
-          <ProjectCard
-            fullName={full_name}
-            url={svn_url}
-            name={name}
-            description={description}
-            language={language}
-            color={colors[language ?? "Ignore List"]?.color ?? "#000"}
-            client:load
-          />
-        ))
-      }
+      <ProjectCard url={url} client:visible />
     </div>
   </div>
 </Layout>
 <script>
   import Typed from "typed.js";
-  const typingSpeed: number = 160;
-  const typed = new Typed("#title", {
-    strings: ["xchrl!", "charlie!"],
-    showCursor: false,
-    backSpeed: typingSpeed,
-    typeSpeed: typingSpeed,
-    backDelay: 2000,
-    startDelay: 500,
-    loop: true,
-  });
+
+  document.addEventListener("astro:after-swap", startTyped);
+  document.addEventListener("DOMContentLoaded", startTyped);
+
+  function startTyped() {
+    new Typed("#title", {
+      strings: ["xchrl!", "charlie!"],
+      showCursor: false,
+      backSpeed: 160,
+      typeSpeed: 160,
+      backDelay: 2000,
+      startDelay: 500,
+      loop: true,
+    });
+  }
 </script>
