@@ -57,55 +57,60 @@ const games = [
 ---
 
 <Layout>
-  <h1>🤔 so, who am i?</h1>
   <div
-    class="p-4 bg-accent/20 border rounded-md border-accent flex flex-col gap-8 shadow-md"
+    class="mx-auto max-w-10/12 lg:max-w-17/20 xl:max-w-7/10 py-4 lg:py-8 my-4 flex flex-col gap-4 md:gap-8 text-center md:text-start"
   >
-    <p>
-      as mentioned previously, i am a front-end developer that had to learn most
-      of the technologies used nowadays myself. i started programming back when
-      i was somewhere around 12 - that's when i made first, pretty basic games
-      with unity. afterwards, i decided to go to a school that specializes in
-      IT, which helped me understand more concepts surrounding the industry.
-    </p>
-    <p>
-      but that's not all! aside from IT, i am a huge sucker for gaming. whether
-      it's fps, psychological horrors, gacha, you name it - i probably play it.
-      especially psychological horrors - my main genre of games since about
-      august 2023 ago, but ever since i tried games like OMORI, needy streamer
-      overload, end roll, etc., i instantly fell in love. usually, you can find
-      me in genshin, zenless, wuthering waves, arknights, blue archive, girls
-      frontline 2, counter strike, rocket league or rematch.
-    </p>
-    <p>
-      other than programming and gaming, i dab a little bit in running! my
-      current goal is to run the distance of a half-marathon (21km) until the
-      end of 2025.
-    </p>
-  </div>
-  <Separator />
-  <div>
-    <h2>and what <span class="text-accent">technologies</span> do i know?</h2>
-    <p class="text-muted-foreground">
-      (highlighted items are those i love the most)
-    </p>
-  </div>
-  <div class="flex gap-4 flex-col">
-    <AboutCard
-      array={technologiesFrontEnd}
-      name="front-end"
-      description="tools useful in creating the UI of a website"
-    />
-    <AboutCard
-      array={technologiesBackEnd}
-      name="back-end"
-      description="tools useful in the behind-the-scenes infrastructure of a website"
-    />
-  </div>
-  <Separator />
-  <h2>other than technologies:</h2>
-  <div class="flex flex-col gap-4">
-    <AboutCard array={editors} name="text editors/ide's" />
-    <AboutCard array={games} name="games i've completed/i adore" />
+    <h1>🤔 so, who am i?</h1>
+    <div
+      class="p-4 bg-accent/20 border rounded-md border-accent flex flex-col gap-8 shadow-md"
+    >
+      <p>
+        as mentioned previously, i am a front-end developer that had to learn
+        most of the technologies used nowadays myself. i started programming
+        back when i was somewhere around 12 - that's when i made first, pretty
+        basic games with unity. afterwards, i decided to go to a school that
+        specializes in IT, which helped me understand more concepts surrounding
+        the industry.
+      </p>
+      <p>
+        but that's not all! aside from IT, i am a huge sucker for gaming.
+        whether it's fps, psychological horrors, gacha, you name it - i probably
+        play it. especially psychological horrors - my main genre of games since
+        about august 2023 ago, but ever since i tried games like OMORI, needy
+        streamer overload, end roll, etc., i instantly fell in love. usually,
+        you can find me in genshin, zenless, wuthering waves, arknights, blue
+        archive, girls frontline 2, counter strike, rocket league or rematch.
+      </p>
+      <p>
+        other than programming and gaming, i dab a little bit in running! my
+        current goal is to run the distance of a half-marathon (21km) until the
+        end of 2025.
+      </p>
+    </div>
+    <Separator />
+    <div>
+      <h2>and what <span class="text-accent">technologies</span> do i know?</h2>
+      <p class="text-muted-foreground">
+        (highlighted items are those i love the most)
+      </p>
+    </div>
+    <div class="flex gap-4 flex-col">
+      <AboutCard
+        array={technologiesFrontEnd}
+        name="front-end"
+        description="tools useful in creating the UI of a website"
+      />
+      <AboutCard
+        array={technologiesBackEnd}
+        name="back-end"
+        description="tools useful in the behind-the-scenes infrastructure of a website"
+      />
+    </div>
+    <Separator />
+    <h2>other than technologies:</h2>
+    <div class="flex flex-col gap-4">
+      <AboutCard array={editors} name="text editors/ide's" />
+      <AboutCard array={games} name="games i've completed/i adore" />
+    </div>
   </div>
 </Layout>
