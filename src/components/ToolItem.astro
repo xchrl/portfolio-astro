@@ -2,14 +2,15 @@
 import { items } from "@/data/aboutItems.ts";
 import { Image } from "astro:assets";
 
-const { name } = Astro.props;
+const { type, name } = Astro.props;
 
-const link = items[name].href;
-const icon = items[name].icon;
+const item = items[type][name];
+const link = item.href;
+const icon = item.icon;
 ---
 
 <a
-  class={`px-4 py-2 border border-accent rounded-md w-max flex items-center gap-4 hover:scale-125 hover:bg-accent hover:text-background duration-150 hover:cursor-pointer ${items[name].highlight ? "bg-accent/20" : ""}`}
+  class={`px-4 py-2 border border-accent rounded-md flex items-center gap-4 hover:scale-125 hover:bg-accent hover:text-background duration-150 hover:cursor-pointer ${item.highlight ? "bg-accent/20" : ""}`}
   href={link}
   target="_blank"
 >

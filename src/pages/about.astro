@@ -2,58 +2,6 @@
 import Layout from "@/layouts/Layout.astro";
 import AboutCard from "@/components/AboutCard.astro";
 import { Separator } from "@/components/ui/separator";
-
-const technologiesFrontEnd = [
-  "HTML",
-  "CSS",
-  "Sass",
-  "Bootstrap",
-  "Tailwind",
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "ShadCN",
-  "Astro",
-  "Vite",
-  "Figma",
-];
-
-const technologiesBackEnd = [
-  "NodeJS",
-  "npm",
-  "pnpm",
-  "MongoDB",
-  "Java",
-  "MySQL",
-];
-
-const editors = [
-  "Visual Studio Code",
-  "Visual Studio",
-  "Neovim",
-  "Cursor",
-  "Android Studio",
-];
-
-const games = [
-  "Genshin Impact",
-  "Zenless Zone Zero",
-  "Wuthering Waves",
-  "Girls' Frontline 2: Exilium",
-  "Arknights",
-  "Blue Archive",
-  "Rocket League",
-  "Counter Strike 2",
-  "Rocket League",
-  "Rematch",
-  "OMORI",
-  "PAYDAY 2",
-  "Half-Life",
-  "Hello Charlotte",
-  "Assetto Corsa",
-  "End Roll",
-  "NEEDY STREAMER OVERLOAD",
-];
 ---
 
 <Layout>
@@ -96,12 +44,12 @@ const games = [
     </div>
     <div class="flex gap-4 flex-col">
       <AboutCard
-        array={technologiesFrontEnd}
+        type="front-end"
         name="front-end"
         description="tools useful in creating the UI of a website"
       />
       <AboutCard
-        array={technologiesBackEnd}
+        type="back-end"
         name="back-end"
         description="tools useful in the behind-the-scenes infrastructure of a website"
       />
@@ -109,8 +57,8 @@ const games = [
     <Separator />
     <h2>other than technologies:</h2>
     <div class="flex flex-col gap-4">
-      <AboutCard array={editors} name="text editors/ide's" />
-      <AboutCard array={games} name="games i've completed/i adore" />
+      <AboutCard type="editors" name="text editors/ide's" />
+      <AboutCard type="games" name="games i've completed/i adore" />
     </div>
   </div>
 </Layout>
