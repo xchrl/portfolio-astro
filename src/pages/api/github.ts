@@ -14,14 +14,15 @@ const repos = [
 
 export async function GET() {
   const data = await Promise.all(
-    repos.map((name) =>
-      octokit
-        .request("GET /repos/{owner}/{repo}", {
-          owner: "xchrl",
-          repo: name,
-        })
-        .then((res) => res.data)
-    )
+    repos.map(async (repoName) => {
+      const res = await octokit.request("GET /repos/{owner}/{repo}", {
+        owner: "xchrl",
+        repo: repoName,
+      });
+
+      const { full_name, svn_url, name, description, language } = res.data;
+      return { full_name, svn_url, name, description, language };
+    })
   );
 
   return new Response(JSON.stringify(data), {
