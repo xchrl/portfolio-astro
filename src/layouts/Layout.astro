@@ -5,6 +5,7 @@ import "../styles/theme.css";
 import Footer from "@/components/Footer.astro";
 import { Toaster } from "@/components/ui/sonner";
 import { ClientRouter } from "astro:transitions";
+import lilith from "@/assets/lilith.gif";
 
 const isOnHome = Astro.url.pathname == "/";
 ---
@@ -69,7 +70,15 @@ const isOnHome = Astro.url.pathname == "/";
       -->
       <slot />
     </main>
-    <Footer />
+    <div class="flex flex-col">
+      <Image
+        src={lilith}
+        alt="Lilith GIF"
+        width={64}
+        class="mx-auto mb-1 md:mx-0 md:self-end md:mr-12 -scale-x-100"
+      />
+      <Footer />
+    </div>
   </body>
 </html>
 
