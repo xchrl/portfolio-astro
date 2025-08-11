@@ -21,6 +21,7 @@ import VisualStudio from "@/assets/visual-studio.svg";
 import Neovim from "@/assets/neovim.svg";
 import Cursor from "@/assets/cursor.svg";
 import AndroidStudio from "@/assets/android-studio.svg";
+import NextJS from "@/assets/nextjs.svg";
 
 type TechnologyEntry = {
   icon?: ImageMetadata;
@@ -32,56 +33,61 @@ type TechnologyMap = Record<string, Record<string, TechnologyEntry>>;
 
 export const items: TechnologyMap = {
   "front-end": {
-    Astro: {
-      icon: AstroSVG,
-      href: "https://astro.build/",
-      highlight: true,
-    },
-    Bootstrap: {
-      icon: Bootstrap,
-      href: "https://getbootstrap.com/",
+    HTML: {
+      icon: HTML5,
+      href: "https://en.wikipedia.org/wiki/HTML",
     },
     CSS: {
       icon: CSS,
       href: "https://en.wikipedia.org/wiki/CSS",
     },
-    Figma: {
-      icon: Figma,
-      href: "https://figma.com/",
-    },
-    HTML: {
-      icon: HTML5,
-      href: "https://en.wikipedia.org/wiki/HTML",
-    },
-    JavaScript: {
-      icon: JavaScript,
-      href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    },
-    React: {
-      icon: React,
-      href: "https://react.dev/",
-      highlight: true,
-    },
     Sass: {
       icon: Sass,
       href: "https://sass-lang.com/",
     },
-    ShadCN: {
-      icon: ShadCN,
-      href: "https://ui.shadcn.com/",
-      highlight: true,
+    Bootstrap: {
+      icon: Bootstrap,
+      href: "https://getbootstrap.com/",
     },
     Tailwind: {
       icon: Tailwind,
       href: "https://tailwindcss.com/",
       highlight: true,
     },
+    JavaScript: {
+      icon: JavaScript,
+      href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    },
     TypeScript: {
       icon: TypeScript,
       href: "https://www.typescriptlang.org/",
       highlight: true,
     },
+    React: {
+      icon: React,
+      href: "https://react.dev/",
+      highlight: true,
+    },
     Vite: { icon: Vite, href: "https://vite.dev/", highlight: true },
+    NextJS: {
+      icon: NextJS,
+      href: "https://nextjs.org/",
+      highlight: true,
+    },
+    "shadcn/ui": {
+      icon: ShadCN,
+      href: "https://ui.shadcn.com/",
+      highlight: true,
+    },
+    Astro: {
+      icon: AstroSVG,
+      href: "https://astro.build/",
+      highlight: true,
+    },
+    Figma: {
+      icon: Figma,
+      href: "https://figma.com/",
+    },
   },
   "back-end": {
     NodeJS: { icon: NodeJS, href: "https://nodejs.org" },
