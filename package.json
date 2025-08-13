@@ -1,7 +1,7 @@
 {
   "name": "portfolio-astro",
   "type": "module",
-  "version": "1.5.7",
+  "version": "1.6.0",
   "scripts": {
     "dev": "astro dev --host --port 3000",
     "build": "astro build",
@@ -29,6 +29,7 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0",
+    "react-use-lanyard": "^0.3.4",
     "sharp": "^0.34.3",
     "sonner": "^2.0.6",
     "tailwind-merge": "^3.3.1",
