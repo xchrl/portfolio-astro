@@ -3,16 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-.banner {
-  background-image: url("../assets/banner.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* Comment/uncomment line below for parallax effect on banner */
-  background-attachment: fixed;
-  mask-image: linear-gradient(to bottom, var(--background), rgba(0, 0, 0, 0));
-}
-
 :root {
   --background: oklab(0.958184 0.0128697 0.00403672);
   --accent: #cf7c7c;
