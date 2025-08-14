@@ -3,8 +3,14 @@ import { useLanyard } from "react-use-lanyard";
 const DISCORD_ID = "329597208494211073";
 
 const getAssetUrl = (appId: string, assetId: string) => {
-  if (assetId.startsWith("mp:"))
-    return assetId.substring(assetId.indexOf("https"));
+  if (assetId.startsWith("mp:")) {
+    let url = assetId.substring(assetId.indexOf("https"));
+    // Fix missing colon in protocol
+    if (url.startsWith("https/")) {
+      url = url.replace("https/", "https://");
+    }
+    return url;
+  }
   return `https://cdn.discordapp.com/app-assets/${appId}/${assetId}.png`;
 };
 
