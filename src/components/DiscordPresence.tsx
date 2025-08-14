@@ -14,14 +14,7 @@ export default function DiscordPresence() {
     socket: true,
   });
 
-  /*
-        <div class="flex">
-        <Image src={avatar} alt="Avatar" loading="eager" />
-        <div class="flex flex-col"></div>
-      </div>
-      */
-
-  console.log(status);
+  const badgeURL = `https://cdn.discordapp.com/guild-tag-badges/${status?.discord_user.primary_guild?.identity_guild_id}/${status?.discord_user.primary_guild?.badge}.png`;
 
   return (
     !loading && (
@@ -35,7 +28,15 @@ export default function DiscordPresence() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <h3>{status?.discord_user.username}</h3>
+          <div className="inline-flex items-center gap-2">
+            <h3>
+              <span>{status?.discord_user.username}</span>
+            </h3>
+            <span className="px-1.75 py-1/2 rounded-md border border-border text-sm flex items-center gap-1 font-bold">
+              <img src={badgeURL} alt="Badge" width={16} />
+              {status?.discord_user.primary_guild?.tag}
+            </span>
+          </div>
           <div className="flex gap-4">
             {status?.discord_status === "offline" ? (
               <p>Currently offline</p>
