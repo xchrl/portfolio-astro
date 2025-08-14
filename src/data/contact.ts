@@ -10,7 +10,7 @@ export const contactInfo = [
   },
   {
     type: "steam",
-    name: "mr ekk",
+    name: "charlie",
     link: "https://steamcommunity.com/profiles/76561198439465473/",
     Icon: FaSteam,
   },
