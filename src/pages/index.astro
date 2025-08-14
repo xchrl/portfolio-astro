@@ -18,7 +18,7 @@ const url = new URL("/api/github", Astro.url).toString();
 <Layout>
   <!-- Hero -->
   <div
-    class="min-h-[700px] lg:h-screen flex flex-col justify-center lg:text-start px-8 relative"
+    class="h-fit lg:h-screen flex flex-col justify-center lg:text-start p-8 relative"
   >
     <!-- Background wrapper -->
     <div
@@ -74,9 +74,9 @@ const url = new URL("/api/github", Astro.url).toString();
       <div class="flex flex-col justify-center gap-8 flex-1">
         <DiscordPresence client:load />
         <img
-          src="https://mayu.due.moe/get/@xchrl.xyz-prod?theme=gelbooru&padding=6"
-          alt="xchrl.xyz-prod"
-          class="px-32"
+          src="https://mayu.due.moe/get/@xchrl.xyz-dev?theme=gelbooru&padding=6"
+          alt="xchrl.xyz-dev"
+          class="px-2"
         />
       </div>
     </div>

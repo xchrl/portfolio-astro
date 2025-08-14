@@ -18,7 +18,7 @@ export default function DiscordPresence() {
 
   return (
     !loading && (
-      <div className="flex gap-6 p-4 bg-secondary border border-border rounded-xl">
+      <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-6 p-4 bg-secondary border border-border rounded-xl">
         <div>
           <img
             src={`https://api.lanyard.rest/${status?.discord_user.id}.png`}
@@ -28,7 +28,7 @@ export default function DiscordPresence() {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <div className="inline-flex items-center gap-2">
+          <div className="inline-flex justify-center lg:justify-start items-center gap-2">
             <h3>
               <span>{status?.discord_user.username}</span>
             </h3>
@@ -37,39 +37,43 @@ export default function DiscordPresence() {
               {status?.discord_user.primary_guild?.tag}
             </span>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 items-center">
             {status?.discord_status === "offline" ? (
               <p>Currently offline</p>
             ) : (
               status?.activities[1] && (
                 <div className="relative w-fit">
-                  {status?.activities[1].assets && (
-                    <img
-                      src={getAssetUrl(
-                        status!.activities[1].application_id!,
-                        status!.activities[1].assets!.large_image
-                      )}
-                      alt="Activity large image"
-                      className="size-16 rounded-lg"
-                    />
-                  )}
-                  <img
-                    src={getAssetUrl(
-                      status!.activities[1].application_id!,
-                      status!.activities[1].assets!.small_image
+                  {status?.activities[1].assets &&
+                    status.activities[1].assets.large_image && (
+                      <img
+                        src={getAssetUrl(
+                          status!.activities[1].application_id!,
+                          status!.activities[1].assets!.large_image
+                        )}
+                        alt="Activity large image"
+                        className="size-16 rounded-lg"
+                      />
                     )}
-                    alt="Activity small image"
-                    className="size-6 rounded-full border border-black absolute -bottom-1 -right-1"
-                  />
+                  {status?.activities[1].assets &&
+                    status.activities[1].assets.small_image && (
+                      <img
+                        src={getAssetUrl(
+                          status!.activities[1].application_id!,
+                          status!.activities[1].assets!.small_image
+                        )}
+                        alt="Activity small image"
+                        className="size-6 rounded-full border border-black absolute -bottom-1 -right-1"
+                      />
+                    )}
                 </div>
               )
             )}
             {status?.activities[1] ? (
               <div className="flex flex-col text-sm">
-                <p className="font-bold">{status?.activities[1].name}</p>
-                <p>{status?.activities[1].details}</p>
+                <p className="font-bold">{status?.activities[1].name ?? ""}</p>
+                <p>{status?.activities[1].details ?? ""}</p>
                 <p className="text-muted-foreground">
-                  {status?.activities[1].state}
+                  {status?.activities[1].state ?? ""}
                 </p>
               </div>
             ) : (
