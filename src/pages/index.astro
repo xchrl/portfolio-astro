@@ -6,9 +6,7 @@ import Clock from "@/components/Clock.astro";
 import ProjectCard from "@/components/ProjectCard";
 import { BsPerson } from "react-icons/bs";
 import { Separator } from "@/components/ui/separator";
-import avatar from "@/assets/avatar.jpg";
 import { contactInfo } from "@/data/contact";
-import { Image } from "astro:assets";
 import banner from "@/assets/banner.webp";
 import DiscordPresence from "@/components/DiscordPresence";
 
@@ -74,8 +72,8 @@ const url = new URL("/api/github", Astro.url).toString();
       <div class="flex flex-col justify-center gap-8 flex-1">
         <DiscordPresence client:load />
         <img
-          src="https://mayu.due.moe/get/@xchrl.xyz-dev?theme=gelbooru&padding=6"
-          alt="xchrl.xyz-dev"
+          src="https://mayu.due.moe/get/@xchrl.xyz-prod?theme=gelbooru&padding=6"
+          alt="xchrl.xyz-prod"
           class="px-2"
         />
       </div>
