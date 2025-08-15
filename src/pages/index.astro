@@ -71,11 +71,21 @@ const url = new URL("/api/github", Astro.url).toString();
       <!-- Discord -->
       <div class="flex flex-col justify-center gap-8 flex-1">
         <DiscordPresence client:load />
-        <img
-          src="https://mayu.due.moe/get/@xchrl.xyz-prod?theme=gelbooru&padding=6"
-          alt="xchrl.xyz-prod"
-          class="px-2"
-        />
+        {
+          import.meta.env.DEV ? (
+            <img
+              src="https://count.getloli.com/@xchrl.xyz-dev?name=xchrl.xyz-dev&theme=booru-r6gdrawfriends&padding=7&offset=0&align=center&scale=1&pixelated=1&darkmode=0"
+              alt="xchrl.xyz-dev"
+              class="px-4"
+            />
+          ) : (
+            <img
+              src="https://count.getloli.com/@xchrl.xyz-prod?name=xchrl.xyz-prod&theme=booru-r6gdrawfriends&padding=7&offset=0&align=center&scale=1&pixelated=1&darkmode=0"
+              alt="xchrl.xyz-prod"
+              class="px-4"
+            />
+          )
+        }
       </div>
     </div>
   </div>

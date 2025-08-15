@@ -43,7 +43,7 @@ export default function DiscordPresence() {
               {status?.discord_user.primary_guild?.tag}
             </span>
           </div>
-          <div className="flex gap-4 items-center">
+          <div className="flex flex-col lg:flex-row gap-4 items-center">
             {status?.discord_status === "offline" ? (
               <p>Currently offline</p>
             ) : (
@@ -74,7 +74,7 @@ export default function DiscordPresence() {
                 </div>
               )
             )}
-            {status?.activities[1] ? (
+            {status?.activities[1] && (
               <div className="flex flex-col text-sm">
                 <p className="font-bold">{status?.activities[1].name ?? ""}</p>
                 <p>{status?.activities[1].details ?? ""}</p>
@@ -82,8 +82,6 @@ export default function DiscordPresence() {
                   {status?.activities[1].state ?? ""}
                 </p>
               </div>
-            ) : (
-              <>Doing nothing</>
             )}
           </div>
         </div>
