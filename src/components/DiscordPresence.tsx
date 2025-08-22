@@ -109,7 +109,7 @@ export default function DiscordPresence() {
               <p>Currently offline</p>
             ) : (
               status?.activities[1] && (
-                <div className="relative w-fit">
+                <div className="relative size-16">
                   {status?.activities[1].assets &&
                     status.activities[1].assets.large_image && (
                       <img
@@ -118,7 +118,12 @@ export default function DiscordPresence() {
                           status!.activities[1].assets!.large_image
                         )}
                         alt="Activity large image"
-                        className="size-16 rounded-lg"
+                        className="size-full object-contain rounded-lg"
+                        onError={(e) => {
+                          if (status!.activities[1].name == "YouTube")
+                            e.currentTarget.src =
+                              "https://cdn.rcd.gg/PreMiD/websites/Y/YouTube/assets/logo.png";
+                        }}
                       />
                     )}
                   {status?.activities[1].assets &&
