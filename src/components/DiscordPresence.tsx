@@ -78,7 +78,7 @@ export default function DiscordPresence() {
           <img
             src={`https://api.lanyard.rest/${status?.discord_user.id}.png`}
             alt="Avatar"
-            width={108}
+            width={128}
             className={`rounded-lg border-2 ${getBorderColorFromStatus(
               status?.discord_status
             )}`}
@@ -100,7 +100,7 @@ export default function DiscordPresence() {
                 status?.discord_status
               )} ${getBeforeColorFromStatus(
                 status?.discord_status
-              )} before:size-3 before:mr-2 before:rounded-full before:inline-block my-auto`}
+              )} before:size-2 before:mr-2 before:rounded-full before:inline-block my-auto flex items-center`}
             >
               {mapStatusToString(status?.discord_status)}
             </p>
