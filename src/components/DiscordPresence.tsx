@@ -34,8 +34,6 @@ export default function DiscordPresence() {
   const songDuration = useRef<number>(0);
   const [songProgress, setSongProgress] = useState<number>(0);
 
-  console.log(status);
-
   useEffect(() => {
     function updateSongTime() {
       const activities = status?.activities;
