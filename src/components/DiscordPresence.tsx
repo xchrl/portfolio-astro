@@ -70,51 +70,54 @@ export default function DiscordPresence() {
   };
 
   return (
-    !loading && (
+    !loading &&
+    status && (
       <div className="flex flex-col lg:flex-row items-center gap-2 lg:gap-6 p-4 bg-secondary border border-border rounded-xl">
         <div>
           <img
-            src={`https://api.lanyard.rest/${status?.discord_user.id}.png`}
+            src={`https://api.lanyard.rest/${status.discord_user.id}.png`}
             alt="Avatar"
             width={128}
             className={`rounded-lg border-2 ${getBorderColorFromStatus(
-              status?.discord_status
+              status.discord_status
             )}`}
           />
         </div>
         <div className="flex flex-col w-full lg:w-fit lg:flex-1 gap-2">
           <div className="inline-flex justify-center lg:justify-start items-center gap-2">
             <h3>
-              <span>{status?.discord_user.username}</span>
+              <span>{status.discord_user.username}</span>
             </h3>
-            <span className="px-1.75 py-1/2 rounded-md border border-border text-sm flex items-center gap-1 font-bold">
-              <img src={badgeURL} alt="Badge" width={16} />
-              {status?.discord_user.primary_guild?.tag}
-            </span>
+            {status.discord_user.primary_guild && (
+              <span className="px-1.75 py-1/2 rounded-md border border-border text-sm flex items-center gap-1 font-bold">
+                <img src={badgeURL} alt="Badge" width={16} />
+                {status.discord_user.primary_guild.tag}
+              </span>
+            )}
           </div>
           <div>
             <p
               className={`${getColorFromStatus(
-                status?.discord_status
+                status.discord_status
               )} ${getBeforeColorFromStatus(
-                status?.discord_status
+                status.discord_status
               )} before:size-2 before:mr-2 before:rounded-full before:inline-block my-auto flex items-center`}
             >
-              {mapStatusToString(status?.discord_status)}
+              {mapStatusToString(status.discord_status)}
             </p>
           </div>
           <div className="flex flex-col lg:flex-row gap-4 items-center">
-            {status?.discord_status === "offline" ? (
+            {status.discord_status === "offline" ? (
               <p>Currently offline</p>
             ) : (
-              status?.activities[1] && (
+              status.activities[1] && (
                 <div className="relative size-16">
-                  {status?.activities[1].assets &&
+                  {status.activities[1].assets &&
                     status.activities[1].assets.large_image && (
                       <img
                         src={getAssetUrl(
-                          status!.activities[1].application_id!,
-                          status!.activities[1].assets!.large_image
+                          status.activities[1].application_id!,
+                          status.activities[1].assets.large_image
                         )}
                         alt="Activity large image"
                         className="size-full object-contain rounded-lg"
@@ -125,12 +128,12 @@ export default function DiscordPresence() {
                         }}
                       />
                     )}
-                  {status?.activities[1].assets &&
+                  {status.activities[1].assets &&
                     status.activities[1].assets.small_image && (
                       <img
                         src={getAssetUrl(
-                          status!.activities[1].application_id!,
-                          status!.activities[1].assets!.small_image
+                          status.activities[1].application_id!,
+                          status.activities[1].assets.small_image
                         )}
                         alt="Activity small image"
                         className="size-6 rounded-full border border-black absolute -bottom-1 -right-1"
@@ -139,14 +142,14 @@ export default function DiscordPresence() {
                 </div>
               )
             )}
-            {status?.activities[1] && (
+            {status.activities[1] && (
               <div className="flex flex-col w-full text-sm text-center lg:text-start">
-                <p className="font-bold">{status?.activities[1].name ?? ""}</p>
-                <p>{status?.activities[1].details ?? ""}</p>
+                <p className="font-bold">{status.activities[1].name ?? ""}</p>
+                <p>{status.activities[1].details ?? ""}</p>
                 <p className="text-muted-foreground">
-                  {status?.activities[1].state ?? ""}
+                  {status.activities[1].state ?? ""}
                 </p>
-                {status?.activities[1].name == "YouTube Music" && (
+                {status.activities[1].name == "YouTube Music" && (
                   <div className="flex items-center gap-2">
                     <span>{formatTime(timeIntoSong)}</span>
                     <Progress value={songProgress} />
@@ -155,7 +158,7 @@ export default function DiscordPresence() {
                 )}
               </div>
             )}
-            {!status?.activities[1] && status?.discord_status !== "offline" && (
+            {!status.activities[1] && status.discord_status !== "offline" && (
               <p>Doing nothing</p>
             )}
           </div>
