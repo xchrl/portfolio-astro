@@ -10,6 +10,7 @@ const repos = [
   "calculator-app",
   "portfolio",
   "event-deadline-viewer",
+  "noexistencen-quotedle",
 ];
 
 export async function GET() {

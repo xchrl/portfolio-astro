@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanyard } from "react-use-lanyard";
 import { Progress } from "./ui/progress";
+import {
+  getBeforeColorFromStatus,
+  getBorderColorFromStatus,
+  getColorFromStatus,
+  mapStatusToString,
+} from "@/lib/statusUtils";
 
 const DISCORD_ID = "329597208494211073";
 
@@ -14,22 +20,6 @@ const getAssetUrl = (appId: string, assetId: string) => {
     return url;
   }
   return `https://cdn.discordapp.com/app-assets/${appId}/${assetId}.png`;
-};
-
-const getBorderColorFromStatus = (
-  status: "online" | "idle" | "dnd" | "offline" | undefined
-) => {
-  switch (status) {
-    case "online":
-      return "border-green-500";
-    case "idle":
-      return "border-yellow-500";
-    case "dnd":
-      return "border-red-400";
-    case "offline":
-    case undefined:
-      return "border-gray-500";
-  }
 };
 
 export default function DiscordPresence() {
@@ -103,6 +93,17 @@ export default function DiscordPresence() {
               <img src={badgeURL} alt="Badge" width={16} />
               {status?.discord_user.primary_guild?.tag}
             </span>
+          </div>
+          <div>
+            <p
+              className={`${getColorFromStatus(
+                status?.discord_status
+              )} ${getBeforeColorFromStatus(
+                status?.discord_status
+              )} before:size-3 before:mr-2 before:rounded-full before:inline-block my-auto`}
+            >
+              {mapStatusToString(status?.discord_status)}
+            </p>
           </div>
           <div className="flex flex-col lg:flex-row gap-4 items-center">
             {status?.discord_status === "offline" ? (
