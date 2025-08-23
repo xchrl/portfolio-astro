@@ -84,27 +84,29 @@ export default function DiscordPresence() {
           />
         </div>
         <div className="flex flex-col w-full lg:w-fit lg:flex-1 gap-2">
-          <div className="inline-flex justify-center lg:justify-start items-center gap-2">
-            <h3>
-              <span>{status.discord_user.username}</span>
-            </h3>
-            {status.discord_user.primary_guild && (
-              <span className="px-1.75 py-1/2 rounded-md border border-border text-sm flex items-center gap-1 font-bold">
-                <img src={badgeURL} alt="Badge" width={16} />
-                {status.discord_user.primary_guild.tag}
-              </span>
-            )}
-          </div>
-          <div>
-            <p
-              className={`${getColorFromStatus(
-                status.discord_status
-              )} ${getBeforeColorFromStatus(
-                status.discord_status
-              )} before:size-2 before:mr-2 before:rounded-full before:inline-block my-auto flex items-center`}
-            >
-              {mapStatusToString(status.discord_status)}
-            </p>
+          <div className="flex flex-col justify-center lg:justify-start items-center lg:items-start">
+            <div className="flex items-center gap-2">
+              <h3>
+                <span>{status.discord_user.username}</span>
+              </h3>
+              {status.discord_user.primary_guild && (
+                <span className="px-1.75 py-1/2 rounded-md border border-border text-sm flex items-center gap-1 font-bold h-fit">
+                  <img src={badgeURL} alt="Badge" width={16} />
+                  {status.discord_user.primary_guild.tag}
+                </span>
+              )}
+            </div>
+            <div>
+              <p
+                className={`${getColorFromStatus(
+                  status.discord_status
+                )} ${getBeforeColorFromStatus(
+                  status.discord_status
+                )} before:size-2 before:mr-2 before:rounded-full before:inline-block my-auto flex items-center`}
+              >
+                {mapStatusToString(status.discord_status)}
+              </p>
+            </div>
           </div>
           <div className="flex flex-col lg:flex-row gap-4 items-center">
             {status.discord_status === "offline" ? (
