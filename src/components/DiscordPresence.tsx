@@ -112,39 +112,38 @@ export default function DiscordPresence() {
             {status.discord_status === "offline" ? (
               <p>Currently offline</p>
             ) : (
-              status.activities[1] && (
+              status.activities[1].name != "Hang Status" &&
+              status.activities[1].assets && (
                 <div className="relative size-16">
-                  {status.activities[1].assets &&
-                    status.activities[1].assets.large_image && (
-                      <img
-                        src={getAssetUrl(
-                          status.activities[1].application_id!,
-                          status.activities[1].assets.large_image
-                        )}
-                        alt="Activity large image"
-                        className="size-full object-contain rounded-lg"
-                        onError={(e) => {
-                          if (status!.activities[1].name == "YouTube")
-                            e.currentTarget.src =
-                              "https://cdn.rcd.gg/PreMiD/websites/Y/YouTube/assets/logo.png";
-                        }}
-                      />
-                    )}
-                  {status.activities[1].assets &&
-                    status.activities[1].assets.small_image && (
-                      <img
-                        src={getAssetUrl(
-                          status.activities[1].application_id!,
-                          status.activities[1].assets.small_image
-                        )}
-                        alt="Activity small image"
-                        className="size-6 rounded-full border border-black absolute -bottom-1 -right-1"
-                      />
-                    )}
+                  {status.activities[1].assets.large_image && (
+                    <img
+                      src={getAssetUrl(
+                        status.activities[1].application_id!,
+                        status.activities[1].assets.large_image
+                      )}
+                      alt="Activity large image"
+                      className="size-full object-contain rounded-lg"
+                      onError={(e) => {
+                        if (status!.activities[1].name == "YouTube")
+                          e.currentTarget.src =
+                            "https://cdn.rcd.gg/PreMiD/websites/Y/YouTube/assets/logo.png";
+                      }}
+                    />
+                  )}
+                  {status.activities[1].assets.small_image && (
+                    <img
+                      src={getAssetUrl(
+                        status.activities[1].application_id!,
+                        status.activities[1].assets.small_image
+                      )}
+                      alt="Activity small image"
+                      className="size-6 rounded-full border border-black absolute -bottom-1 -right-1"
+                    />
+                  )}
                 </div>
               )
             )}
-            {status.activities[1] && (
+            {status.activities[1].name != "Hang Status" && (
               <div className="flex flex-col w-full text-sm text-center lg:text-start">
                 <p className="font-bold">{status.activities[1].name ?? ""}</p>
                 <p>{status.activities[1].details ?? ""}</p>
@@ -160,9 +159,9 @@ export default function DiscordPresence() {
                 )}
               </div>
             )}
-            {!status.activities[1] && status.discord_status !== "offline" && (
-              <p>Doing nothing</p>
-            )}
+            {(!status.activities[1] ||
+              status.activities[1].name == "Hang Status") &&
+              status.discord_status !== "offline" && <p>Doing nothing</p>}
           </div>
         </div>
       </div>
