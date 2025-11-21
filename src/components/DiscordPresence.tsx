@@ -69,6 +69,8 @@ export default function DiscordPresence() {
     return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   };
 
+  // TODO: this shit is fucking UNREADABLEEEEEEE
+
   return (
     !loading &&
     status && (
@@ -111,6 +113,8 @@ export default function DiscordPresence() {
           <div className="flex flex-col lg:flex-row gap-4 items-center">
             {status.discord_status === "offline" ? (
               <p>Currently offline</p>
+            ) : !status.activities[1] ? (
+              <p>Doing nothing</p>
             ) : (
               status.activities[1].name != "Hang Status" &&
               status.activities[1].assets && (
@@ -143,25 +147,23 @@ export default function DiscordPresence() {
                 </div>
               )
             )}
-            {status.activities[1].name != "Hang Status" && (
-              <div className="flex flex-col w-full text-sm text-center lg:text-start">
-                <p className="font-bold">{status.activities[1].name ?? ""}</p>
-                <p>{status.activities[1].details ?? ""}</p>
-                <p className="text-muted-foreground">
-                  {status.activities[1].state ?? ""}
-                </p>
-                {status.activities[1].name == "YouTube Music" && (
-                  <div className="flex items-center gap-2">
-                    <span>{formatTime(timeIntoSong)}</span>
-                    <Progress value={songProgress} />
-                    <span>{formatTime(songDuration.current)}</span>
-                  </div>
-                )}
-              </div>
-            )}
-            {(!status.activities[1] ||
-              status.activities[1].name == "Hang Status") &&
-              status.discord_status !== "offline" && <p>Doing nothing</p>}
+            {status.activities[1] &&
+              status.activities[1].name != "Hang Status" && (
+                <div className="flex flex-col w-full text-sm text-center lg:text-start">
+                  <p className="font-bold">{status.activities[1].name ?? ""}</p>
+                  <p>{status.activities[1].details ?? ""}</p>
+                  <p className="text-muted-foreground">
+                    {status.activities[1].state ?? ""}
+                  </p>
+                  {status.activities[1].name == "YouTube Music" && (
+                    <div className="flex items-center gap-2">
+                      <span>{formatTime(timeIntoSong)}</span>
+                      <Progress value={songProgress} />
+                      <span>{formatTime(songDuration.current)}</span>
+                    </div>
+                  )}
+                </div>
+              )}
           </div>
         </div>
       </div>
